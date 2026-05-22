@@ -1,0 +1,8 @@
+# LEEVS.IN — Cloudflare Pages Redirects Rules
+# Guarantees clean URL routing and SPA fallback to prevent raw 404 errors
+
+# Redirect to preserve index mapping for query variations
+/home    /    301
+
+# Single Page Application (SPA) routing fallback
+/*       /index.html   200
