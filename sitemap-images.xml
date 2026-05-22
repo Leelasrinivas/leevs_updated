@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+  xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+
+  <!-- ═══════════════════════════════════════
+       LEEVS.IN — Image Sitemap
+  ═══════════════════════════════════════ -->
+
+  <url>
+    <loc>https://leevs.in/</loc>
+    <image:image>
+      <image:loc>https://leevs.in/og-image.jpg</image:loc>
+      <image:title>Leevs – Premium Business Website Development</image:title>
+      <image:caption>Leevs web studio – luxury websites starting at $79 / ₹5,999 launch price</image:caption>
+      <image:geo_location>Global Service</image:geo_location>
+    </image:image>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=600</image:loc>
+      <image:title>Real Estate Website Design by Leevs – Tirupati</image:title>
+      <image:caption>Professional real estate website design service by Leevs</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=600</image:loc>
+      <image:title>Interior Design Studio Website by Leevs</image:title>
+      <image:caption>Premium interior design website crafted by Leevs web studio</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?w=600</image:loc>
+      <image:title>Travel and Car Rental Website Design by Leevs</image:title>
+      <image:caption>Booking-ready travel website development service</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=600</image:loc>
+      <image:title>Restaurant and Café Website Design by Leevs</image:title>
+      <image:caption>Elegant restaurant website designed to fill tables</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1519167758481-83f550bb49b3?w=600</image:loc>
+      <image:title>Event Planner Website Design by Leevs</image:title>
+      <image:caption>Professional event planning website by Leevs Tirupati</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=600</image:loc>
+      <image:title>Business Consultant Website by Leevs</image:title>
+      <image:caption>Authority-building consultant website by Leevs web studio</image:caption>
+    </image:image>
+  </url>
+
+</urlset>

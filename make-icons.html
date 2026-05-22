@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Leevs Icon Generator</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      background: #0f172a;
+      color: #fff;
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2rem;
+    }
+    h1 { color: #22c55e; margin-bottom: 0; }
+    p  { color: #6b7280; font-size: 0.85rem; margin-top: 0.25rem; }
+    .icon-wrap {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      justify-content: center;
+    }
+    .icon-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    canvas {
+      border-radius: 22%;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.5);
+    }
+    .dl-btn {
+      background: #16a34a;
+      color: #fff;
+      border: none;
+      padding: 0.4rem 1rem;
+      border-radius: 999px;
+      cursor: pointer;
+      font-size: 0.75rem;
+      font-weight: 700;
+    }
+    label { color: #9ca3af; font-size: 0.7rem; }
+  </style>
+</head>
+<body>
+  <h1>Leevs PWA Icon Generator</h1>
+  <p>Click each "Download" button to save the PNG icon</p>
+
+  <div class="icon-wrap" id="iconWrap"></div>
+
+  <script>
+    const SIZES = [
+      { size: 16,   label: 'favicon-16.png' },
+      { size: 32,   label: 'favicon-32.png' },
+      { size: 72,   label: 'icon-72.png' },
+      { size: 96,   label: 'icon-96.png' },
+      { size: 128,  label: 'icon-128.png' },
+      { size: 144,  label: 'icon-144.png' },
+      { size: 152,  label: 'icon-152.png' },
+      { size: 192,  label: 'icon-192.png' },
+      { size: 384,  label: 'icon-384.png' },
+      { size: 512,  label: 'icon-512.png' },
+    ];
+
+    const drawLeaf = (canvas, size) => {
+      const ctx = canvas.getContext('2d');
+      const s   = size;
+      const cx  = s / 2;
+
+      // Background
+      const radius = s * 0.18;
+      ctx.beginPath();
+      ctx.moveTo(radius, 0);
+      ctx.lineTo(s - radius, 0);
+      ctx.quadraticCurveTo(s, 0, s, radius);
+      ctx.lineTo(s, s - radius);
+      ctx.quadraticCurveTo(s, s, s - radius, s);
+      ctx.lineTo(radius, s);
+      ctx.quadraticCurveTo(0, s, 0, s - radius);
+      ctx.lineTo(0, radius);
+      ctx.quadraticCurveTo(0, 0, radius, 0);
+      ctx.closePath();
+      ctx.fillStyle = '#0f172a';
+      ctx.fill();
+
+      // Leaf gradient
+      const grad = ctx.createLinearGradient(0, 0, s, s);
+      grad.addColorStop(0, '#22c55e');
+      grad.addColorStop(1, '#16a34a');
+
+      // Leaf path
+      const pad  = s * 0.10;
+      const top  = s * 0.10;
+      const bot  = s * 0.76;
+      const mid  = cx;
+
+      ctx.beginPath();
+      ctx.moveTo(mid, top);
+      ctx.bezierCurveTo(
+        mid + s*0.38, top,
+        mid + s*0.38, s*0.45,
+        mid + s*0.20, bot
+      );
+      ctx.bezierCurveTo(
+        mid + s*0.10, s*0.86,
+        mid, s*0.90,
+        mid, s*0.90
+      );
+      ctx.bezierCurveTo(
+        mid, s*0.90,
+        mid - s*0.10, s*0.86,
+        mid - s*0.20, bot
+      );
+      ctx.bezierCurveTo(
+        mid - s*0.38, s*0.45,
+        mid - s*0.38, top,
+        mid, top
+      );
+      ctx.closePath();
+      ctx.fillStyle = grad;
+      ctx.fill();
+
+      // Stem
+      ctx.beginPath();
+      ctx.moveTo(mid, s * 0.90);
+      ctx.lineTo(mid, s * 0.26);
+      ctx.strokeStyle = '#0f172a';
+      ctx.lineWidth   = s * 0.028;
+      ctx.lineCap     = 'round';
+      ctx.stroke();
+
+      // Left vein
+      ctx.beginPath();
+      ctx.moveTo(mid, s * 0.56);
+      ctx.lineTo(mid - s * 0.14, s * 0.42);
+      ctx.lineWidth = s * 0.016;
+      ctx.stroke();
+
+      // Right vein
+      ctx.beginPath();
+      ctx.moveTo(mid, s * 0.66);
+      ctx.lineTo(mid + s * 0.14, s * 0.52);
+      ctx.lineWidth = s * 0.016;
+      ctx.stroke();
+    };
+
+    const wrap = document.getElementById('iconWrap');
+
+    SIZES.forEach(({ size, label }) => {
+      const item   = document.createElement('div');
+      item.className = 'icon-item';
+
+      const canvas = document.createElement('canvas');
+      canvas.width  = size;
+      canvas.height = size;
+      canvas.style.width  = Math.min(size, 128) + 'px';
+      canvas.style.height = Math.min(size, 128) + 'px';
+
+      drawLeaf(canvas, size);
+
+      const lbl = document.createElement('label');
+      lbl.textContent = `${size}×${size}`;
+
+      const btn = document.createElement('button');
+      btn.className   = 'dl-btn';
+      btn.textContent = `Download ${label}`;
+      btn.onclick     = () => {
+        const a    = document.createElement('a');
+        a.href     = canvas.toDataURL('image/png');
+        a.download = label;
+        a.click();
+      };
+
+      item.appendChild(canvas);
+      item.appendChild(lbl);
+      item.appendChild(btn);
+      wrap.appendChild(item);
+    });
+  </script>
+</body>
+</html>
