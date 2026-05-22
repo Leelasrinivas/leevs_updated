@@ -12,16 +12,16 @@
   "categories": ["business", "productivity", "utilities"],
   "icons": [
     {
-      "src": "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 192 192'><rect width='192' height='192' rx='40' fill='%230f172a'/><path d='M96 20 C148 20 158 78 126 118 C116 130 96 138 96 138 C96 138 76 130 66 118 C34 78 44 20 96 20Z' fill='%2322c55e'/><line x1='96' y1='138' x2='96' y2='52' stroke='%230f172a' stroke-width='4' stroke-linecap='round'/></svg>",
+      "src": "/favicon-192x192.png",
       "sizes": "192x192",
-      "type": "image/svg+xml",
+      "type": "image/png",
       "purpose": "any maskable"
     },
     {
-      "src": "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'><rect width='512' height='512' rx='80' fill='%230f172a'/><path d='M256 48 C400 48 420 200 336 312 C308 348 256 368 256 368 C256 368 204 348 176 312 C92 200 112 48 256 48Z' fill='%2322c55e'/><line x1='256' y1='368' x2='256' y2='140' stroke='%230f172a' stroke-width='10' stroke-linecap='round'/></svg>",
-      "sizes": "512x512",
+      "src": "/favicon.svg",
+      "sizes": "any",
       "type": "image/svg+xml",
-      "purpose": "any maskable"
+      "purpose": "any"
     }
   ],
   "screenshots": [
