@@ -1,5 +1,5 @@
 # LEEVS.IN — Cloudflare Pages Headers Configuration
-# Security Headers and Performance Optimization
+# Security, Cache, and SEO Performance Headers
 
 /*
   X-Frame-Options: DENY
@@ -8,17 +8,34 @@
   Referrer-Policy: no-referrer-when-downgrade
   Permissions-Policy: interest-cohort=()
   Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
+  Content-Type: text/html; charset=UTF-8
 
-# HTML pages - always revalidate for fresh content
+# HTML - always revalidate
 /index.html
   Cache-Control: public, max-age=0, must-revalidate
 
-# CSS and JS - short cache with revalidation so updates deploy fast
+# CSS and JS - short cache with revalidation
 /style.css
   Cache-Control: public, max-age=3600, must-revalidate
+  Content-Type: text/css; charset=UTF-8
 
 /script.js
   Cache-Control: public, max-age=3600, must-revalidate
+  Content-Type: application/javascript; charset=UTF-8
+
+# Favicons - cache longer
+/favicon.svg
+  Cache-Control: public, max-age=604800
+  Content-Type: image/svg+xml
+
+/favicon-32x32.png
+  Cache-Control: public, max-age=604800
+
+/favicon-192x192.png
+  Cache-Control: public, max-age=604800
+
+/apple-touch-icon.png
+  Cache-Control: public, max-age=604800
 
 # Manifest
 /manifest.json
